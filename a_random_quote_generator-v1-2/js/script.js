@@ -1,55 +1,99 @@
-
-// the quotes i chose
-var quotes = [
-  {quote:'Hard work beats talent when talent fails to work hard'
-    source:'Kevin Durant' 
-  },
-
-  {quote:'You miss 100 percent of the shots you dont take'
-     source:'Wayne Gretzky' 
-  },
  
-  {quote:'Live the live you have imagined'
-    source:'Henry David Thorreau' 
+//These are my quotes put inside an array//
+let quotes = [
+  {
+  quote:"You miss 100 percent of the shots you dont take", 
+    source: "Wayne Gretzky",
+  citation: "",
+  year: ""
   },
- 
-  {quote:'Dont be afraid of failure this is the way to suceed'
-   source:'Lebron James' 
+  {
+  quote:"Live the live you have imagined",
+    source:"Henry David Thorreau" ,
   },
- 
-  {quote:'There is no way around hard work, embrace it'
-  source:'Roger Federer'
+  {
+  quote:"Dont be afraid of failure this is the way to suceed",
+   source:"Lebron James",
   },
-  ];
-   console.log(quotes);
+  {
+  quote:"There is no way around hard work, embrace it",
+  source:"Roger Federer"
+  },
+];
 
+//This function gets a random Quote by first getting a random Number and then searching the index of the quotes array for that object.
+let storedNum;
 
-    //this function returns a random quote from the array
-  function getRandomQuote(): {
-  timeoutID = window.setTimeout(window.alert, 2000, 
-  var randomNumber = Math.floor(Math.random(5)*quotes.lenth);
-  return quotes [randomNumber];
+function getRandomQuote() {
+  let randomNum = Math.floor(Math.random() * 4);
+  if (randomNum === storedNum) {
+    return getRandomQuote();
   }
-
-
-
-    // the printQuote function calls the getRandomQuote (im still having trouble here)
-  function printQuote() {
-    console.log("clicked")
-    var actualQuote = getRandomQuote(quotes);  
-    var stringOFQuoteProperties = "";
-    stringOFQuoteProperties += "<p class='quotes>">" + actualQuote.quote +"</p> <p>class='source'>" + actualQuote.source + ""</p>
-    <p class="quotes"> [quote here] </p>
-    <p class="source"> [source here] </p>
-    document.getElementById('quote-box').innerHTML = stringOfQuoteProperties; 
-    
-    console.log(printQuote());
-  
+  if (randomNum !== storedNum) {
+    storedNum = randomNum;
   }
+  return quotes[randomNum];
+}
+//Background color array containing css colors.
+let colors = ['E633FF', '070E07' , 'FFF933', '337DFF', 'FF3333'];
 
-      document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+//Function to pull a random color from the background color array.
+function randomColor() {
+  let randomNum2 = Math.floor(Math.random() * 4);
+  return colors[randomNum2];
+
+}
+
+/*
+This function creates an empty html string.
+It then uses the getRandomQuote function to select a random quote from the quote array.
+It starts to compile a string of html from the different key/value pairs associated with that random quote.  Once the html is all concatenated, it will then print that quote to the webpage.
+I set an interval time to reload the quote of 25 seconds.
+Background color changes when the button is pressed or when the interval time elapses.
+*/
+let timer;
+
+function quoteTimer() {
+  clearInterval(timer);
+  timer = window.setInterval(printQuote, 13000);
+}
+
+function randomBackgroundColor() {
+  let newBackground = randomColor();
+  //Sets a new background color, then matches it to the quote button
+  document.body.style.background = newBackground;
+  document.getElementById("loadQuote").style.backgroundColor = newBackground;
+}
+
+function printQuote() {
+  let html = '';
+  let randomQuote =  getRandomQuote();
+
+  randomBackgroundColor();
+  quoteTimer();
+
+  html += '<p class="quote">' + randomQuote.quote + '</p>';
+  html += '<p class="source">' + randomQuote.source;
+  html += '</p>';
+
+//The variable div is being set to the quote box ID.
+//Then the innerHTML is changed to the html string we compiled.
+//Then we return that div.
+  let div = document.getElementById('quote-box');
+  div.innerHTML = html;
+  return div
+}
 
 
 
-  document.getElementById("javascript.js").src = javascript.js
-  
+/***
+  When the "Show another quote" button is clicked, the event listener
+  below will be triggered, and it will call, or "invoke", the `printQuote`
+  function. So do not make any changes to the line of code below this
+  comment.
+***/
+
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+
+
+// Remember to delete the comments that came with this file, and replace them with your own code comments.

@@ -1,4 +1,4 @@
- /******************************************
+/******************************************
 Treehouse FSJS Techdegree:
 project 1 - A Random Quote Generator
 ******************************************/
@@ -15,27 +15,29 @@ project 1 - A Random Quote Generator
   Use console.log() to log your array of quotes to the console.
 ***/
 
+ 
+
 var quotes = [
-  {quote:'Hard work beats talent when talent fails to work hard'
+  {quote:'Hard work beats talent when talent fails to work hard',
     source:'Kevin Durant' 
   },
 
-  {quote:'You miss 100 percent of the shots you dont take'
+  {quote:'You miss 100 percent of the shots you dont take',
      source:'Wayne Gretzky' 
   },
  
-  {quote:'Live the live you have imagined'
+  {quote:'Live the live you have imagined',
     source:'Henry David Thorreau' 
   },
  
-  {quote:'Dont be afraid of failure this is the way to suceed'
+  {quote:'Dont be afraid of failure this is the way to suceed',
    source:'Lebron James' 
   },
  
-  {quote:'There is no way around hard work, embrace it'
+  {quote:'There is no way around hard work, embrace it',
   source:'Roger Federer'
   },
-  ];
+];
    console.log(quotes);
 
 
@@ -44,13 +46,12 @@ var quotes = [
    - Create a variable to store a random number 
    - Cse the random number to `return` a random quote object from the `quotes` array.
 ***/
-  function getRandomQuote(): {
-  timeoutID = window.setTimeout(window.alert, 2000, 
-  var randomNumber = Math.floor(Math.random(5)*quotes.lenth);
+function getRandomQuote() { 
+  var randomNumber = Math.floor(Math.random(5) * quotes.lenth);
   return quotes [randomNumber];
-  }
+}
 
-
+  console.log(getRandomQuote()); 
 
 
 /***
@@ -65,14 +66,23 @@ var quotes = [
    - Don't forget to close that final `p` tag.
    - Set the `innerHTML` of the `quote-box` div to the HTML string. 
 ***/
+let html = '';
+
   function printQuote() {
-    console.log("clicked")
-    var actualQuote = getRandomQuote(quotes);  
-    var stringOFQuoteProperties = "";
-    stringOFQuoteProperties += "<p class='quotes>">" + actualQuote.quote +"</p> <p>class='source'>" + actualQuote.source + ""</p>
-    <p class="quotes"> [quote here] </p>
-    <p class="source"> [source here] </p>
-    document.getElementById('quote-box').innerHTML = stringOfQuoteProperties; 
+    var randomQuote = getRandomQuote();  
+    var htmlString = '';
+    htmlString += '<p class="quote">' + randomQuote.quote + '</p>; 
+    htmlString += '<p class="source">' + randomQuote. source; 
+  
+    htmlString += '</p>' ;
+
+    console.log(printQuote(getRandomQuote));
+    
+    document.getElementById('quote-box').innerHTML = htmlString;
+};
+    
+   
+    
     
     console.log(printQuote());
   
@@ -93,22 +103,3 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 
 // Remember to delete the comments that came with this file, and replace them with your own code comments.
-
-  document.getElementById("javascript.js").src = javascript.js
-  
-
-		$('#quoteButton').click(function(evt){
-			//define the containers of the info we target
-			var quote = $('#quoteContainer p').text();
-			var quoteGenius = $('#quoteGenius').text();
-			//prevent browser's default action
-			evt.preventDefault();
-			//getting a new random number to attach to a quote and setting a limit
-			var sourceLength = quoteSource.length;
-			var randomNumber= Math.floor(Math.random()*sourceLength);
-			//set a new quote
-			for(i=0;i<=sourceLength;i+=1){
-			var newQuoteText = quoteSource[randomNumber].quote;
-			var newQuoteGenius = quoteSource[randomNumber].name;
-			//console.log(newQuoteText,newQuoteGenius);
-      

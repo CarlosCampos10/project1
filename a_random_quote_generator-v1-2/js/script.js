@@ -1,22 +1,25 @@
  //These are my quotes put inside an array//
-// 4 in total my 5th on is im the index.html to start//
 let quotes = [
+  { 
+    quote:"Hard work beats talent when talent fails to work hard.",
+  source:"Kevin Durant",  
+  } 
   {
-  quote:"You miss 100 percent of the shots you dont take", 
-    source: "Wayne Gretzky",
-  citation: "",
-  year: ""
+    quote:"The best decisions aren’t made with your mind, but with your instinct.”", 
+    source: "Lionel Messi",
+  citation: "Fifa interview",
+  year: "2012"
   },
   {
-  quote:"Live the live you have imagined",
+    quote:"Live the live you have imagined",
     source:"Henry David Thorreau" ,
   },
-  {
-  quote:"Dont be afraid of failure this is the way to suceed",
+  { 
+    quote:"Dont be afraid of failure this is the way to suceed",
    source:"Lebron James",
   },
-  {
-  quote:"There is no way around hard work, embrace it",
+  { 
+    quote:"There is no way around hard work, embrace it",
   source:"Roger Federer"
   },
 ];
@@ -67,6 +70,15 @@ function printQuote() {
 
   randomBackgroundColor();
   quoteTimer();
+  if (randomQuote.citation) {
+    html += '<span class="citation">randomQuote.citation</span>;
+  }
+  if (randomQuote.year) {
+    html += '<span class="year">randomQuote.year</span>;
+  }
+    htmlString += '</p>'; 
+    
+    
 //only created randomQuote/Source functions because my quotes didnt have years//
   html += '<p class="quote">' + randomQuote.quote + '</p>';
   html += '<p class="source">' + randomQuote.source;

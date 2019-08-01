@@ -3,7 +3,7 @@ let quotes = [
   { 
     quote:"Hard work beats talent when talent fails to work hard.",
   source:"Kevin Durant",  
-  } 
+  }, 
   {
     quote:"The best decisions aren’t made with your mind, but with your instinct.”", 
     source: "Lionel Messi",
@@ -70,13 +70,13 @@ function printQuote() {
 
   randomBackgroundColor();
   quoteTimer();
-  if (randomQuote.citation) {
+  if (randomQuote.citation) "" {
     html += '<span class="citation">randomQuote.citation</span>;
   }
-  if (randomQuote.year) {
+  if (randomQuote.year) "" {
     html += '<span class="year">randomQuote.year</span>;
   }
-    htmlString += '</p>'; 
+    html += '</p>'; 
     
     
 //only created randomQuote/Source functions because my quotes didnt have years//

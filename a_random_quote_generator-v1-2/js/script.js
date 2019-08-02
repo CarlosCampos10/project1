@@ -6,7 +6,7 @@ let quotes = [
   },
   {
     quote:
-      "The best decisions aren't made with your mind, but with your instinct."",
+      "The best decisions aren't made with your mind, but with your instinct.",
     source: "Lionel Messi",
     citation: "Fifa interview",
     year: "2012"
